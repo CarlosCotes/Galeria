@@ -35,10 +35,6 @@ function crearImagen(URL, TIT) {
     img.src = URL;
     img.alt = TIT;
 
-    img.addEventListener('click', function() {
-        mostrarModal(URL, TIT, DESC);
-    });
-
     return img;
 }
 
@@ -79,17 +75,7 @@ function limpiarform() {
     document.getElementById('DESC').value = '';
 }
 
-function mostrarModal(URL, TIT, DESC) {
-    const modal = document.getElementById('modal');
-    const modalImagen = document.getElementById('modalImagen');
-    const modalTitulo = document.getElementById('modalTitulo');
-    const modalDescripcion = document.getElementById('modalDescripcion');
 
-    modalImagen.src = URL;
-    modalTitulo.textContent = TIT;
-    modalDescripcion.textContent = DESC;
-    modal.classList.add('show');
-}
 
 document.getElementById('closeModal').addEventListener('click', function() {
     document.getElementById('modal').classList.remove('show');
