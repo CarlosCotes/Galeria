@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galeria</title>
     <link rel="stylesheet" href="style.css" />
-    <script defer src="scripts.js"></script>
   </head>
   <body>
     <div id="container">
       <h1>Galería de imágenes</h1>
       <div id="form">
-        <input
-          placeholder="Ingrese la URL de la imagen"
-          id="URL"
-          type="text"
-        />
-        <input placeholder="Ingrese un titulo " id="TITULO" type="text" />
-        <input
-          placeholder="Ingrese una descripcion "
-          id="DESC"
-          type="text"
-        />
+        <input placeholder="Ingrese la URL de la imagen" id="URL" type="text" />
+        <input placeholder="Ingrese un titulo " id="TIT" type="text" />
+        <input placeholder="Ingrese una descripcion " id="DESC" type="text" />
         <button id="buttonAG">Agregar imagen</button>
       </div>
-      <div class="galeria" id="galeria"></div>
+      <div class="galeria" id="galeria">
+      </div>
     </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span id="closeModal" class="close"></span>
+          <img id="modalImagen" src="" alt="Imagen">
+          <div id="modalTitulo"></div>
+          <div id="modalDescripcion"></div>
+      </div>
   </body>
+  <script defer src="scripts.js"></script>
 </html>

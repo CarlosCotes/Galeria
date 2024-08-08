@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3c6e71;
 
 }
 #form {
@@ -27,7 +26,7 @@
     border-radius: 5px;
     width: 200px;
   }
-  #TITULO{
+  #TIT{
     padding: 10px;
     margin: 5px;
     border: 1px solid #ccc;
@@ -50,6 +49,130 @@
     cursor: pointer;
 }
 }
-#container-galeria #galeria {
-  background-color: red;
+.galeria{
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    justify-content: space-around;
+}
+.galeria-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.galeria-item {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 200px; 
+    background-color: #284b63;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+
+.galeria-item .titulo-img {
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.galeria-item .botones {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.galeria-item .botones button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.galeria-item .botones button:hover {
+    background-color: #c9302c;
+}
+
+.galeria-item .botones .ver-detalles {
+    background-color: green;
+}
+
+.galeria-item .botones .ver-detalles:hover {
+    background-color: #22b222;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #284b63;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalImagen {
+    max-width: 100%;
+    height: auto;
+}
+
+#modalTitulo {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
 }
