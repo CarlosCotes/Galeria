@@ -1,64 +1,76 @@
 const buttonAG = document.getElementById("buttonAG");
 
 buttonAG.addEventListener("click", function () {
-  const URL = document.getElementById("URL").value;
-  const TIT = document.getElementById("TIT").value;
-  const DESC = document.getElementById("DESC").value;
+    const URL = document.getElementById("URL").value;
+    const TIT = document.getElementById("TIT").value;
+    const DESC = document.getElementById("DESC").value;
 
-  if (URL && TIT && DESC) {
-    Agim(URL, TIT, DESC);
-    limpiarform();
-  } else {
-    alert("Porfavor aseguerese de llenar todos los campos.");
-    return;
-  }
+    if (URL && TIT && DESC) {
+        Agim(URL, TIT, DESC);
+        limpiarform();
+    } else {
+        alert("Por favor asegúrese de llenar todos los campos.");
+    }
 });
 
 function Agim(URL, TIT, DESC) {
-  const galeria = document.getElementById("galeria");
+    const galeria = document.getElementById("galeria");
 
-  const nuevoDiv = document.createElement("div");
-  nuevoDiv.classList.add("galeria-item");
-  const img = document.createElement("img");
-  img.src = URL;
-  img.alt = TIT;
+    const nuevoDiv = document.createElement("div");
+    nuevoDiv.classList.add("galeria-item");
 
-  img.addEventListener('click', function() {
-    mostrarModal(URL, TIT, DESC);
-});
+    const img = crearImagen(URL, TIT);
+    const tituloimg = crearTituloImagen(TIT);
+    const botones = crearBotones(nuevoDiv, URL, TIT, DESC);
 
-  nuevoDiv.appendChild(img);
+    nuevoDiv.appendChild(img);
+    nuevoDiv.appendChild(tituloimg);
+    nuevoDiv.appendChild(botones);
 
-  const tituloimg = document.createElement("div");
-  tituloimg.classList.add("titulo-img");
-  tituloimg.textContent = TIT;
+    galeria.appendChild(nuevoDiv);
+}
 
-  nuevoDiv.appendChild(tituloimg);
+function crearImagen(URL, TIT) {
+    const img = document.createElement("img");
+    img.src = URL;
+    img.alt = TIT;
 
-  const botones = document.createElement('div');
-  botones.classList.add('botones');
+    img.addEventListener('click', function() {
+        mostrarModal(URL, TIT, DESC);
+    });
 
-  const botonEliminar = document.createElement("button");
-  botonEliminar.textContent = "Eliminar";
-  botonEliminar.addEventListener("click", function () {
-    galeria.removeChild(nuevoDiv);
-  });
+    return img;
+}
 
-  const botonVerDetalles = document.createElement("button");
-  botonVerDetalles.classList.add("ver-detalles");
-  botonVerDetalles.textContent = "Ver Detalles";
+function crearTituloImagen(TIT) {
+    const tituloimg = document.createElement("div");
+    tituloimg.classList.add("titulo-img");
+    tituloimg.textContent = TIT;
 
-  botonVerDetalles.addEventListener("click", function () {
-    mostrarModal(URL, TIT, DESC);
-  });
+    return tituloimg;
+}
 
-  botones.appendChild(botonEliminar);
+function crearBotones(nuevoDiv, URL, TIT, DESC) {
+    const botones = document.createElement('div');
+    botones.classList.add('botones');
 
-  botones.appendChild(botonVerDetalles);
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.addEventListener("click", function () {
+        nuevoDiv.remove();
+    });
 
-  nuevoDiv.appendChild(botones);
+    const botonVerDetalles = document.createElement("button");
+    botonVerDetalles.classList.add("ver-detalles");
+    botonVerDetalles.textContent = "Ver Detalles";
+    botonVerDetalles.addEventListener("click", function () {
+        mostrarModal(URL, TIT, DESC);
+    });
 
-  galeria.appendChild(nuevoDiv);
+    botones.appendChild(botonEliminar);
+    botones.appendChild(botonVerDetalles);
+
+    return botones;
 }
 
 function limpiarform() {
@@ -67,8 +79,7 @@ function limpiarform() {
     document.getElementById('DESC').value = '';
 }
 
-function mostrarModal(URL, TIT, DESC) 
-{
+function mostrarModal(URL, TIT, DESC) {
     const modal = document.getElementById('modal');
     const modalImagen = document.getElementById('modalImagen');
     const modalTitulo = document.getElementById('modalTitulo');
@@ -86,7 +97,7 @@ document.getElementById('closeModal').addEventListener('click', function() {
 
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('modal');
-    if (event.target == modal) {
+    if (event.target === modal) {
         modal.classList.remove('show');
     }
 });
