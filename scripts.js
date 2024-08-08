@@ -75,15 +75,3 @@ function limpiarform() {
     document.getElementById('DESC').value = '';
 }
 
-
-
-document.getElementById('closeModal').addEventListener('click', function() {
-    document.getElementById('modal').classList.remove('show');
-});
-
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target === modal) {
-        modal.classList.remove('show');
-    }
-});
