@@ -56,18 +56,19 @@
 
     justify-content: space-around;
 }
-.galeria-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
 
 .galeria-item {
     position: relative;
     border-radius: 5px;
     overflow: hidden;
-    width: 200px; 
+    width: 200px;
     background-color: #284b63;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .galeria-item img {
@@ -81,6 +82,7 @@
     padding: 10px;
     text-align: center;
 }
+
 .galeria-item .botones {
     display: flex;
     justify-content: space-around;
@@ -94,6 +96,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .galeria-item .botones button:hover {
@@ -107,7 +110,6 @@
 .galeria-item .botones .ver-detalles:hover {
     background-color: #22b222;
 }
-
 
 .modal {
     display: none;
@@ -128,8 +130,10 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
     text-align: center;
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
 }
 
 .modal.show {
@@ -142,14 +146,14 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .close:hover,
-
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 }
 
 #modalImagen {
@@ -161,16 +165,6 @@
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
-}
-
-.modal-content {
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 800px;
-    text-align: center;
-    transform: translateY(-30px);
-    transition: transform 0.3s ease;
 }
 
 .modal.show .modal-content {
